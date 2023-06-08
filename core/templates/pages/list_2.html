@@ -1,0 +1,13 @@
+{% extends 'base.html' %} 
+{% load filters %} 
+{% block body %}
+<center>
+  {% for product in products %}
+  <h3>Name: {{product.name|lower|slash_end}}</h3>
+  <p>Content: {{product.content|check_length}}</p>
+  <strong>Total Price: {{product.total_price|add:10}}</strong>
+  <small>Created at: {{ product.created_at|timesince }}</small>
+  {% endfor %}
+</center>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block body %}
+<center>
+  {% for product in products %}
+  <h3>Name: {{product.name|lower}}</h3>
+  <p>Content: {{product.content|truncatechars_html:50}}</p>
+  <strong>Total Price: {{product.total_price|floatformat:2}}</strong>
+  <small>Created at: {{ product.created_at|date:'d.m.Y' }}</small>
+  {% endfor %}
+</center>
+
+{% endblock %}
